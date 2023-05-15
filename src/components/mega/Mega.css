@@ -1,0 +1,9 @@
+.Mega .numero {
+  border-width: 0.13rem;
+  border-style: solid;
+  border-radius: 100%;
+  background-color: rgb(135, 171, 192);
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+}
