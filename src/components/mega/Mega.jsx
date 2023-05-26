@@ -5,33 +5,24 @@ import Botao from "./Botao";
 import "./Mega.css";
 
 export default (props) => {
-  const [nums, setNums] = useState();
-  let lista = [];
+  let nums = 0
+  const [lista, setLista] = useState([])
+
+  function geradorNumeros() {
+    for (let i = 0; i < nums; i++) {
+      let num = Math.round(Math.random() * (60 - 1) + 1);
+      setLista((old) => [...old, num])
+    }
+  }
 
   function fornecerInfo(newNums) {
-    setNums(newNums);
+    nums = newNums;
   }
-
-  function geradorNumeros(qtde) {
-    if (qtde < 1) {
-      qtde = 1;
-    }
-    if (qtde > 6) {
-      qtde = 6;
-    }
-    for (let i = 0; i < qtde; i++) {
-      let num = Math.round(Math.random() * (60 - 1) + 1);
-      lista[i] = num;
-    }
-    console.log(qtde);
-    console.log(lista);
-  }
-
   return (
     <div className="Mega">
       <Tab numeros={lista}></Tab>
-      <Entrada setNums={fornecerInfo}></Entrada>
-      <Botao quandoClicar={geradorNumeros(nums)}></Botao>
+      <Entrada sendInfo={fornecerInfo}></Entrada>
+      <Botao quandoClicar={geradorNumeros}></Botao>
     </div>
   );
-};
+}

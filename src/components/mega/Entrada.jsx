@@ -4,7 +4,7 @@ export default (props) => {
   return (
     <div>
       <label></label>
-      <input onChange={(e) => props.setNums(+e.target.value)} />
+      <input onChange={(e) => props.sendInfo(+e.target.value)} />
     </div>
   );
 };
